@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Checkerboard</title>
+    <style>
+    .red_box{
+    background-color: {% if color1 %}
+                        {{color1}};
+                        {% else %}
+                        rgb(255,0,0);
+                        {% endif %}
+    height: 50px;
+    width: 50px;
+    }
+
+    .black_box{
+        background-color: {% if color2 %}
+                            {{color2}};
+                            {% else %}
+                            rgb(0,0,0);
+                            {% endif %}
+        height: 50px;
+        width: 50px;
+    }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+    {% for i in range(0,num2): %}
+        <div class="row_container">
+        {% for i in range(0,num1): %}
+            <div class="row1">
+                <div class="red_box"></div>
+                <div class="black_box"></div>
+            </div>
+            <div class="row2">
+                <div class="black_box"></div>
+                <div class="red_box"></div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
